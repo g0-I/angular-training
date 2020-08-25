@@ -5,4 +5,5 @@ angular.module('myapp', [])
           {"name": "sato", "score":84.32},
           {"name": "kobayashi", "score":67.89},
       ];
+      $scope.today = new Date();
   }]);
