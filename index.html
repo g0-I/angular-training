@@ -11,17 +11,21 @@
 </head>
 
 <body>
-    <h1>AngularJSのトレーニング</h1>
-    <div ng-controller="MainController">
-        <p>{{250 * 255|number}}</p>
-        <p>{{250 * 255|currency:"¥"}}</p>
-        <p>{{today|date:'yyyy-MM-dd'}}</p>
-        <ul>
-            <li ng-repeat="user in users">
-                {{user.name|uppercase}} {{user.score|number:4}}
-            </li>
-        </ul>
-    </div>
+  <h1>AngularJSのトレーニング</h1>
+  <div ng-controller="MainController">
+    <p><input type="text" ng-model="query"></p>
+    <ul>
+        <li ng-repeat="user in users|filter:query">
+            {{user.name}} {{user.score}}
+        </li>
+    </ul>
+    <ul>
+        <li ng-repeat="user in users|orderBy:'score'|limitTo:5">
+            {{user.name}} {{user.score}}
+        </li>
+    </ul>
+  </div>
+
 
 </body>
 
