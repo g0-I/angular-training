@@ -18,6 +18,17 @@
                 <span ng-show="myForm.name.$error.minlength">Too short!</span>
                 <span ng-show="myForm.name.$error.maxlength">Too long!</span>
             </p>
+            <p>Score:
+                <input type="number" name="score" ng-model="user.score">
+            </p>
+            <p>Email:
+                <input type="email" name="email" ng-model="user.email">
+                <span ng-show="myForm.email.$error.email">Not valid email!</span>
+            </p>
+            <p>Web:
+                <input type="url" name="url" ng-model="user.url">
+                <span ng-show="myForm.url.$error.url">Not valid web url!</span>
+            </p>
             <p><input type="submit" value="add"></p>
         </form>
     </div>
