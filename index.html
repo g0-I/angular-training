@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" ng-app="myapp">
+<html lang="ja" ng-app>
 
 <head>
     <meta charset="utf-8">
@@ -10,9 +10,14 @@
 
 <body>
     <h1>AngularJSのトレーニング</h1>
-    <div ng-controller="MainController">
-        <form name="myName" ng-submit="addUser()">
-            <p>Name:<input type="text" name="name" ng-model="user.name"></p>
+    <div ng-controller="mainCtrl">
+        <form novalidate name="myForm" ng-submit="addUser()">
+            <p>Name:
+                <input type="text" name="name" ng-model="user.name" required ng-minlength="5" ng-maxlength="8">
+                <span ng-show="myForm.name.$error.required">Required!</span>
+                <span ng-show="myForm.name.$error.minlength">Too short!</span>
+                <span ng-show="myForm.name.$error.maxlength">Too long!</span>
+            </p>
             <p><input type="submit" value="add"></p>
         </form>
     </div>
