@@ -1,36 +1,29 @@
 <!DOCTYPE html>
-<html lang="ja" ng-app="myapp">
-
-</html>
+<html lang="ja" ng-app>
 
 <head>
     <meta charset="utf-8">
     <title>Angular traing</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
     <script src="myscript.js"></script>
-    <style>
-        .even {
-            background: #ccc;
-        }
-
-        .odd {
-            background: red;
-        }
-    </style>
 </head>
 
 <body>
     <h1>AngularJSのトレーニング</h1>
-    <div ng-controller="MainController">
-        <p><input type="text" ng-model="query"></p>
-        <ul>
-            <li ng-repeat="user in users" ng-class-even="'even'" ng-class-odd="'odd'">
-                {{$index+1}} {{$first}} {{$middle}} {{$last}} {{user.name}} {{user.score}}
-            </li>
-        </ul>
+    <div ng-controller="mainCtrl">
+        <form novalidate name="myForm" ng-submit="addUser()">
+            <p>18+:<input type="checkbox" ng-model="user.adult" ng-true-value="adult" ng-false-value="child"></p>
+            <p>Phone:
+                <input type="radio" ng-model="user.phone" value="iPhone"> iPhone
+                <input type="radio" ng-model="user.phone" value="Android"> Android
+            </p>
+            <p>Memo:
+                <textarea ng-model="user.memo" ng-maxlength="140"></textarea>{{140-user.memo.length}}
+            </p>
+            <p><input type="submit" value="add"></p>
+        </form>
+        <pre>{{user|json}}</pre>
     </div>
-
-
 </body>
 
 </html>
