@@ -1,4 +1,4 @@
-var mainCtrl = function ($scope) {
+let mainCtrl = function ($scope) {
     $scope.addUser = function () {
     }
 }
