@@ -1,2 +1,2 @@
-# angular-training
+# angular training
 angular's training
